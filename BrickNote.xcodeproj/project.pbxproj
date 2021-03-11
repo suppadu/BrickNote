@@ -3,29 +3,38 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		281AB34F25D121E000DA0E7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281AB34E25D121E000DA0E7B /* AppDelegate.swift */; };
 		281AB35125D121E000DA0E7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281AB35025D121E000DA0E7B /* SceneDelegate.swift */; };
-		281AB35325D121E000DA0E7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281AB35225D121E000DA0E7B /* ViewController.swift */; };
 		281AB35625D121E000DA0E7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 281AB35425D121E000DA0E7B /* Main.storyboard */; };
-		281AB35925D121E000DA0E7B /* BrickNote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 281AB35725D121E000DA0E7B /* BrickNote.xcdatamodeld */; };
 		281AB35B25D121E400DA0E7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 281AB35A25D121E400DA0E7B /* Assets.xcassets */; };
 		281AB35E25D121E400DA0E7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 281AB35C25D121E400DA0E7B /* LaunchScreen.storyboard */; };
+		282FA89225F9F33100B2D47C /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282FA89125F9F33100B2D47C /* AddCategoryViewController.swift */; };
+		289D665225F8E08600D83774 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 289D665125F8E08600D83774 /* RealmSwift */; };
+		289D665A25F8E6A800D83774 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D665925F8E6A800D83774 /* Category.swift */; };
+		289D665F25F8E83200D83774 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D665E25F8E83200D83774 /* Note.swift */; };
+		28CCD71625D1A7AF002E6B4B /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CCD71525D1A7AF002E6B4B /* NoteViewController.swift */; };
+		28CCD71925D1A8B2002E6B4B /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CCD71825D1A8B2002E6B4B /* CategoriesTableViewController.swift */; };
+		28CCD71C25D1A8DC002E6B4B /* NotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CCD71B25D1A8DC002E6B4B /* NotesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		281AB34B25D121E000DA0E7B /* BrickNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrickNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		281AB34E25D121E000DA0E7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		281AB35025D121E000DA0E7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		281AB35225D121E000DA0E7B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		281AB35525D121E000DA0E7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		281AB35825D121E000DA0E7B /* BrickNote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BrickNote.xcdatamodel; sourceTree = "<group>"; };
 		281AB35A25D121E400DA0E7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		281AB35D25D121E400DA0E7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		281AB35F25D121E400DA0E7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		282FA89125F9F33100B2D47C /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
+		289D665925F8E6A800D83774 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		289D665E25F8E83200D83774 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		28CCD71525D1A7AF002E6B4B /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		28CCD71825D1A8B2002E6B4B /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
+		28CCD71B25D1A8DC002E6B4B /* NotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				289D665225F8E08600D83774 /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,14 +70,42 @@
 			children = (
 				281AB34E25D121E000DA0E7B /* AppDelegate.swift */,
 				281AB35025D121E000DA0E7B /* SceneDelegate.swift */,
-				281AB35225D121E000DA0E7B /* ViewController.swift */,
-				281AB35425D121E000DA0E7B /* Main.storyboard */,
+				289D665825F8E67200D83774 /* Data */,
+				281AB36625D1A60B00DA0E7B /* Controller */,
+				289D665625F8E3FD00D83774 /* View */,
 				281AB35A25D121E400DA0E7B /* Assets.xcassets */,
 				281AB35C25D121E400DA0E7B /* LaunchScreen.storyboard */,
 				281AB35F25D121E400DA0E7B /* Info.plist */,
-				281AB35725D121E000DA0E7B /* BrickNote.xcdatamodeld */,
 			);
 			path = BrickNote;
+			sourceTree = "<group>";
+		};
+		281AB36625D1A60B00DA0E7B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				28CCD71525D1A7AF002E6B4B /* NoteViewController.swift */,
+				28CCD71825D1A8B2002E6B4B /* CategoriesTableViewController.swift */,
+				28CCD71B25D1A8DC002E6B4B /* NotesTableViewController.swift */,
+				282FA89125F9F33100B2D47C /* AddCategoryViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		289D665625F8E3FD00D83774 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				281AB35425D121E000DA0E7B /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		289D665825F8E67200D83774 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				289D665925F8E6A800D83774 /* Category.swift */,
+				289D665E25F8E83200D83774 /* Note.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +124,9 @@
 			dependencies = (
 			);
 			name = BrickNote;
+			packageProductDependencies = (
+				289D665125F8E08600D83774 /* RealmSwift */,
+			);
 			productName = BrickNote;
 			productReference = 281AB34B25D121E000DA0E7B /* BrickNote.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +154,9 @@
 				Base,
 			);
 			mainGroup = 281AB34225D121E000DA0E7B;
+			packageReferences = (
+				289D665025F8E08600D83774 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = 281AB34C25D121E000DA0E7B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,10 +184,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				281AB35325D121E000DA0E7B /* ViewController.swift in Sources */,
+				282FA89225F9F33100B2D47C /* AddCategoryViewController.swift in Sources */,
 				281AB34F25D121E000DA0E7B /* AppDelegate.swift in Sources */,
 				281AB35125D121E000DA0E7B /* SceneDelegate.swift in Sources */,
-				281AB35925D121E000DA0E7B /* BrickNote.xcdatamodeld in Sources */,
+				289D665F25F8E83200D83774 /* Note.swift in Sources */,
+				28CCD71625D1A7AF002E6B4B /* NoteViewController.swift in Sources */,
+				28CCD71C25D1A8DC002E6B4B /* NotesTableViewController.swift in Sources */,
+				28CCD71925D1A8B2002E6B4B /* CategoriesTableViewController.swift in Sources */,
+				289D665A25F8E6A800D83774 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,18 +394,24 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCVersionGroup section */
-		281AB35725D121E000DA0E7B /* BrickNote.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				281AB35825D121E000DA0E7B /* BrickNote.xcdatamodel */,
-			);
-			currentVersion = 281AB35825D121E000DA0E7B /* BrickNote.xcdatamodel */;
-			path = BrickNote.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
+/* Begin XCRemoteSwiftPackageReference section */
+		289D665025F8E08600D83774 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.7.2;
+			};
 		};
-/* End XCVersionGroup section */
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		289D665125F8E08600D83774 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 289D665025F8E08600D83774 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 281AB34325D121E000DA0E7B /* Project object */;
 }
