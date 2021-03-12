@@ -108,6 +108,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.93725490199999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="3TE-lg-VIE" kind="show" identifier="goToUpdateNote" id="iEf-RX-HKW"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -127,10 +130,10 @@
             </objects>
             <point key="canvasLocation" x="2155" y="94"/>
         </scene>
-        <!--Note View Controller-->
+        <!--Add Note View Controller-->
         <scene sceneID="dZt-qn-Mzj">
             <objects>
-                <viewController id="l3V-rj-Oia" customClass="NoteViewController" customModule="BrickNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="l3V-rj-Oia" customClass="AddNoteViewController" customModule="BrickNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZVf-c4-zrh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,7 +160,7 @@
                     <navigationItem key="navigationItem" id="1W6-VN-ifo">
                         <barButtonItem key="leftBarButtonItem" systemItem="save" id="5vb-if-jLU">
                             <connections>
-                                <segue destination="sZR-Va-1SP" kind="unwind" identifier="saveNoteSegue" unwindAction="unwindActionWithUnwindSegue:" id="kMA-ww-UaK"/>
+                                <segue destination="sZR-Va-1SP" kind="unwind" identifier="addNoteSegue" unwindAction="unwindAddNoteWithUnwindSegue:" id="fUb-LW-0GP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -186,6 +189,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CK5-cC-2eY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="493" y="94"/>
+        </scene>
+        <!--Update Note View Controller-->
+        <scene sceneID="Zzu-GV-GNc">
+            <objects>
+                <viewController id="3TE-lg-VIE" customClass="UpdateNoteViewController" customModule="BrickNote" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PVj-Iw-9Wm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Название заметки" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kCf-Hx-rXc">
+                                <rect key="frame" x="20" y="104" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.28967682989999999" green="0.79404244660000001" blue="0.86200678470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bV9-cq-Zpl">
+                                <rect key="frame" x="20" y="146" width="374" height="716"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.28967682989999999" green="0.79404244660000001" blue="0.86200678470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uTc-uk-TZm"/>
+                        <color key="backgroundColor" red="0.28967682989999999" green="0.79404244660000001" blue="0.86200678470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sKW-Pi-saX">
+                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="tfd-uv-B0O">
+                            <connections>
+                                <segue destination="tTn-PD-t4e" kind="unwind" identifier="updateNoteSegue" unwindAction="unwindUpdateNoteWithUnwindSegue:" id="uiD-cN-Yx9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textNoteTextView" destination="bV9-cq-Zpl" id="JtI-Ph-uSO"/>
+                        <outlet property="titleNoteTextField" destination="kCf-Hx-rXc" id="HCx-b0-M5S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0WB-8x-LNr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="tTn-PD-t4e" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2154" y="822"/>
         </scene>
     </scenes>
     <resources>

@@ -45,9 +45,9 @@ class NotesTableViewController: UITableViewController {
         return cell
     }
     
-    //MARK: - Переход от NoteVC и сохранение данных в Realm
+    //MARK: - Переход от AddNoteVC и сохранение данных в Realm
     
-    @IBAction func unwindAction(unwindSegue: UIStoryboardSegue){
+    @IBAction func unwindAddNote(unwindSegue: UIStoryboardSegue){
         print("Note is back")
         if let currentCategory = self.selectedCategory{
             do {
@@ -62,6 +62,36 @@ class NotesTableViewController: UITableViewController {
             }
         }
         
+        tableView.reloadData()
+    }
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        performSegue(withIdentifier: "goToUpdateNote", sender: self)
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToUpdateNote"{
+            let vc = segue.destination as! UpdateNoteViewController
+            if let indexPath = tableView.indexPathForSelectedRow {
+                vc.updateNote = notes?[indexPath.row]
+            }
+        }
+    }
+    
+    @IBAction func unwindUpdateNote(unwindSegue: UIStoryboardSegue){
+        print("Update Note")
+        if let indexPath = tableView.indexPathForSelectedRow{
+            if let note = notes?[indexPath.row]{
+                do {
+                    try realm.write{
+                        note.title = titleNote ?? "Заметка"
+                        note.text = textNote ?? ""
+                    }
+                } catch {
+                    print("Note ne zapisalsya: \(error)")
+                }
+            }
+        }
         tableView.reloadData()
     }
     
@@ -109,15 +139,4 @@ class NotesTableViewController: UITableViewController {
         return true
     }
     */
-
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    
-
 }

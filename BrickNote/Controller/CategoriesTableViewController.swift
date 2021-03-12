@@ -60,8 +60,6 @@ class CategoriesTableViewController: UITableViewController {
         performSegue(withIdentifier: "goToNote", sender: self)
     }
     
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToNote"{
             let vc = segue.destination as! NotesTableViewController
