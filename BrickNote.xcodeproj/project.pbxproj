@@ -14,7 +14,9 @@
 		281AB35B25D121E400DA0E7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 281AB35A25D121E400DA0E7B /* Assets.xcassets */; };
 		281AB35E25D121E400DA0E7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 281AB35C25D121E400DA0E7B /* LaunchScreen.storyboard */; };
 		282FA89225F9F33100B2D47C /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282FA89125F9F33100B2D47C /* AddCategoryViewController.swift */; };
-		287232A225FF0E040061B82A /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287232A125FF0E030061B82A /* SwipeTableViewController.swift */; };
+		287232A625FF13B30061B82A /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287232A425FF13B30061B82A /* CustomTableViewCell.swift */; };
+		287232A725FF13B30061B82A /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 287232A525FF13B30061B82A /* CustomTableViewCell.xib */; };
+		287232AB25FF1ABD0061B82A /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 287232AA25FF1ABD0061B82A /* Color.xcassets */; };
 		289D665225F8E08600D83774 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 289D665125F8E08600D83774 /* RealmSwift */; };
 		289D665A25F8E6A800D83774 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D665925F8E6A800D83774 /* Category.swift */; };
 		289D665F25F8E83200D83774 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D665E25F8E83200D83774 /* Note.swift */; };
@@ -34,7 +36,9 @@
 		281AB35D25D121E400DA0E7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		281AB35F25D121E400DA0E7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		282FA89125F9F33100B2D47C /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
-		287232A125FF0E030061B82A /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
+		287232A425FF13B30061B82A /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		287232A525FF13B30061B82A /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		287232AA25FF1ABD0061B82A /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		289D665925F8E6A800D83774 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		289D665E25F8E83200D83774 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		28CCD71525D1A7AF002E6B4B /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 				281AB36625D1A60B00DA0E7B /* Controller */,
 				289D665625F8E3FD00D83774 /* View */,
 				281AB35A25D121E400DA0E7B /* Assets.xcassets */,
+				287232AA25FF1ABD0061B82A /* Color.xcassets */,
 				281AB35C25D121E400DA0E7B /* LaunchScreen.storyboard */,
 				281AB35F25D121E400DA0E7B /* Info.plist */,
 			);
@@ -99,7 +104,7 @@
 				28CCD71B25D1A8DC002E6B4B /* NotesTableViewController.swift */,
 				282FA89125F9F33100B2D47C /* AddCategoryViewController.swift */,
 				2818495F25FB2E4A00D87FDF /* UpdateNoteViewController.swift */,
-				287232A125FF0E030061B82A /* SwipeTableViewController.swift */,
+				287232A425FF13B30061B82A /* CustomTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -107,6 +112,7 @@
 		289D665625F8E3FD00D83774 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				287232A525FF13B30061B82A /* CustomTableViewCell.xib */,
 				281AB35425D121E000DA0E7B /* Main.storyboard */,
 			);
 			path = View;
@@ -205,6 +211,8 @@
 			files = (
 				281AB35E25D121E400DA0E7B /* LaunchScreen.storyboard in Resources */,
 				281AB35B25D121E400DA0E7B /* Assets.xcassets in Resources */,
+				287232AB25FF1ABD0061B82A /* Color.xcassets in Resources */,
+				287232A725FF13B30061B82A /* CustomTableViewCell.xib in Resources */,
 				281AB35625D121E000DA0E7B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,9 +268,9 @@
 			files = (
 				282FA89225F9F33100B2D47C /* AddCategoryViewController.swift in Sources */,
 				281AB34F25D121E000DA0E7B /* AppDelegate.swift in Sources */,
+				287232A625FF13B30061B82A /* CustomTableViewCell.swift in Sources */,
 				281AB35125D121E000DA0E7B /* SceneDelegate.swift in Sources */,
 				289D665F25F8E83200D83774 /* Note.swift in Sources */,
-				287232A225FF0E040061B82A /* SwipeTableViewController.swift in Sources */,
 				2818496025FB2E4A00D87FDF /* UpdateNoteViewController.swift in Sources */,
 				28CCD71625D1A7AF002E6B4B /* AddNoteViewController.swift in Sources */,
 				28CCD71C25D1A8DC002E6B4B /* NotesTableViewController.swift in Sources */,

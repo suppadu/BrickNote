@@ -25,7 +25,7 @@ class NotesTableViewController: UITableViewController {
         super.viewDidLoad()
         navigationItem.title = selectedCategory?.title
         print(realm.configuration.fileURL!)
-        
+        tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "noteCell")
     }
 
     // MARK: - Table view data source
@@ -37,11 +37,11 @@ class NotesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! SwipeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! CustomTableViewCell
         if let note = notes?[indexPath.row]{
-            cell.textLabel?.text = note.title
+            cell.title.text = note.title
         } else{
-            cell.textLabel?.text = "No note"
+            cell.title.text = "No note"
         }
         cell.delegate = self
         return cell
@@ -68,9 +68,9 @@ class NotesTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "goToUpdateNote", sender: self)
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "goToUpdateNote", sender: self)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToUpdateNote"{

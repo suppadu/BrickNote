@@ -7,5 +7,5 @@ target 'BrickNote' do
 
   # Pods for BrickNote
     pod 'SwipeCellKit'
-    pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon.git', :branch => 'swift5'
+  #  pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon.git', :branch => 'swift5'
 end

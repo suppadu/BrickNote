@@ -8,7 +8,6 @@
 import UIKit
 import RealmSwift
 import SwipeCellKit
-import ChameleonFramework
 
 class CategoriesTableViewController: UITableViewController{
     
@@ -18,7 +17,7 @@ class CategoriesTableViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 80.0
+        tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "categoryCell")
         load()
         
     }
@@ -31,14 +30,12 @@ class CategoriesTableViewController: UITableViewController{
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! SwipeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! CustomTableViewCell
         if let category = categories?[indexPath.row]{
-            cell.textLabel?.text = category.title
-            cell.detailTextLabel?.text = String(category.notes.count)
+            cell.title.text = category.title
         } else {
-            cell.textLabel?.text = "No category"
+            cell.title.text = "No category"
         }
-        cell.backgroundColor = UIColor.flatGray()
         cell.delegate = self
         return cell
     }

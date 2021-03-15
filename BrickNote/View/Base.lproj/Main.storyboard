@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,17 +13,17 @@
         <scene sceneID="E17-K2-4zc">
             <objects>
                 <tableViewController id="qan-JL-sJw" customClass="CategoriesTableViewController" customModule="BrickNote" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ukM-wz-rox">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ukM-wz-rox">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.28967682994731753" green="0.79404244660074241" blue="0.86200678467396907" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="BrickWhite"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" id="OFV-2u-Uge" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwipeCell" id="OFV-2u-Uge" customClass="CustomTableViewCell" customModule="BrickNote">
+                                <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OFV-2u-Uge" id="FEZ-im-7gJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.93725490199999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -36,6 +37,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Категории" id="VX9-AI-Q20">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NnZ-2V-1qA">
+                            <color key="tintColor" name="BrickBlack"/>
                             <connections>
                                 <segue destination="CvH-A2-2Hc" kind="presentation" id="PFS-ae-5XL"/>
                             </connections>
@@ -57,31 +59,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="название категории" textAlignment="center" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="xLm-72-ps0">
-                                <rect key="frame" x="43" y="390" width="334" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhZ-ah-Z2P">
-                                <rect key="frame" x="144" y="670" width="128" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="добавить"/>
-                                <connections>
-                                    <segue destination="6Xx-2s-6rB" kind="unwind" identifier="addCategoryToCategoriesSegue" unwindAction="unwindActionWithUnwindSegue:" id="w7o-YR-4yJ"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="добавить категорию" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ko3-v8-xii">
-                                <rect key="frame" x="14" y="116" width="392" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="35"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="115" translatesAutoresizingMaskIntoConstraints="NO" id="6zH-Qf-CuR">
+                                <rect key="frame" x="3" y="50" width="408" height="738"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="добавить категорию" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ko3-v8-xii">
+                                        <rect key="frame" x="86" y="0.0" width="236.5" height="169.5"/>
+                                        <color key="tintColor" name="BrickBlack"/>
+                                        <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="40"/>
+                                        <color key="textColor" name="BrickBlack"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="название категории" textAlignment="center" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="xLm-72-ps0">
+                                        <rect key="frame" x="15" y="284.5" width="378" height="169"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhZ-ah-Z2P">
+                                        <rect key="frame" x="140" y="568.5" width="128" height="169.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="добавить">
+                                            <color key="titleColor" name="BrickBlack"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="6Xx-2s-6rB" kind="unwind" identifier="addCategoryToCategoriesSegue" unwindAction="unwindActionWithUnwindSegue:" id="w7o-YR-4yJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="xLm-72-ps0" firstAttribute="leading" secondItem="6zH-Qf-CuR" secondAttribute="leading" constant="15" id="BZx-6b-XI6"/>
+                                    <constraint firstAttribute="trailing" secondItem="xLm-72-ps0" secondAttribute="trailing" constant="15" id="fGx-9w-8pM"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tjR-NZ-Onr"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BrickWhite"/>
+                        <constraints>
+                            <constraint firstItem="6zH-Qf-CuR" firstAttribute="leading" secondItem="tjR-NZ-Onr" secondAttribute="leading" constant="3" id="EJh-Sg-b2E"/>
+                            <constraint firstItem="6zH-Qf-CuR" firstAttribute="centerX" secondItem="tjR-NZ-Onr" secondAttribute="centerX" id="ObA-9K-bN3"/>
+                            <constraint firstItem="6zH-Qf-CuR" firstAttribute="top" secondItem="tjR-NZ-Onr" secondAttribute="top" constant="50" id="TwN-s7-PGJ"/>
+                            <constraint firstItem="tjR-NZ-Onr" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6zH-Qf-CuR" secondAttribute="trailing" constant="3" id="obl-DH-v58"/>
+                            <constraint firstItem="tjR-NZ-Onr" firstAttribute="bottom" secondItem="6zH-Qf-CuR" secondAttribute="bottom" constant="20" id="tBK-Yo-Gdk"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xk3-vD-yjF"/>
                     <connections>
@@ -97,22 +115,19 @@
         <scene sceneID="y2O-aW-3WJ">
             <objects>
                 <tableViewController id="5qm-nR-LFt" customClass="NotesTableViewController" customModule="BrickNote" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qbd-wI-0Ke">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qbd-wI-0Ke">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.28967682989999999" green="0.79404244660000001" blue="0.86200678470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="BrickWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noteCell" id="d1G-d8-Sws" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noteCell" id="d1G-d8-Sws" customClass="CustomTableViewCell" customModule="BrickNote">
+                                <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d1G-d8-Sws" id="twc-Y8-mPt">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.93725490199999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <segue destination="3TE-lg-VIE" kind="show" identifier="goToUpdateNote" id="iEf-RX-HKW"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -122,17 +137,21 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Заметки" id="iRR-ec-h9X">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dNq-Rh-a8Y">
+                            <color key="tintColor" name="BrickBlack"/>
                             <connections>
                                 <segue destination="l3V-rj-Oia" kind="show" id="2Ts-Yt-IPG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="3TE-lg-VIE" kind="show" identifier="goToUpdateNote" id="C5f-Df-89f"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1hJ-6c-kVq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2155" y="94"/>
         </scene>
-        <!--Add Note View Controller-->
+        <!--Новая заметка-->
         <scene sceneID="dZt-qn-Mzj">
             <objects>
                 <viewController id="l3V-rj-Oia" customClass="AddNoteViewController" customModule="BrickNote" customModuleProvider="target" sceneMemberID="viewController">
@@ -140,27 +159,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Название заметки" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wz0-46-1vd">
-                                <rect key="frame" x="20" y="104" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.28967682989999999" green="0.79404244660000001" blue="0.86200678470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vsp-UC-SAI">
-                                <rect key="frame" x="20" y="146" width="374" height="716"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.28967682989999999" green="0.79404244660000001" blue="0.86200678470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vsp-UC-SAI">
+                                <rect key="frame" x="10" y="226" width="394" height="631"/>
+                                <color key="backgroundColor" name="BrickWhite"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Название заметки" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wz0-46-1vd">
+                                <rect key="frame" x="10" y="165" width="394" height="36"/>
+                                <color key="backgroundColor" name="BrickWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CIE-uC-W0t"/>
-                        <color key="backgroundColor" red="0.28967682989999999" green="0.79404244660000001" blue="0.86200678470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="BrickWhite"/>
+                        <constraints>
+                            <constraint firstItem="CIE-uC-W0t" firstAttribute="bottom" secondItem="Vsp-UC-SAI" secondAttribute="bottom" constant="5" id="7sv-2M-cRA"/>
+                            <constraint firstItem="CIE-uC-W0t" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Vsp-UC-SAI" secondAttribute="trailing" constant="5" id="9dW-3y-FEU"/>
+                            <constraint firstItem="Vsp-UC-SAI" firstAttribute="centerX" secondItem="CIE-uC-W0t" secondAttribute="centerX" id="T0e-Lp-Kif"/>
+                            <constraint firstItem="wz0-46-1vd" firstAttribute="top" secondItem="CIE-uC-W0t" secondAttribute="top" constant="25" id="dAR-IO-pw6"/>
+                            <constraint firstItem="wz0-46-1vd" firstAttribute="leading" secondItem="CIE-uC-W0t" secondAttribute="leading" constant="10" id="jS0-Ie-6d1"/>
+                            <constraint firstItem="Vsp-UC-SAI" firstAttribute="leading" secondItem="CIE-uC-W0t" secondAttribute="leading" constant="10" id="k7v-29-EmU"/>
+                            <constraint firstItem="CIE-uC-W0t" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wz0-46-1vd" secondAttribute="trailing" constant="5" id="n8L-xZ-7zW"/>
+                            <constraint firstItem="Vsp-UC-SAI" firstAttribute="top" secondItem="CIE-uC-W0t" secondAttribute="top" constant="86" id="peR-wF-RgJ"/>
+                            <constraint firstItem="wz0-46-1vd" firstAttribute="centerX" secondItem="CIE-uC-W0t" secondAttribute="centerX" id="tkX-IG-ZS5"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="1W6-VN-ifo">
+                    <navigationItem key="navigationItem" title="Новая заметка" id="1W6-VN-ifo">
                         <barButtonItem key="leftBarButtonItem" systemItem="save" id="5vb-if-jLU">
+                            <color key="tintColor" name="BrickBlack"/>
                             <connections>
                                 <segue destination="sZR-Va-1SP" kind="unwind" identifier="addNoteSegue" unwindAction="unwindAddNoteWithUnwindSegue:" id="fUb-LW-0GP"/>
                             </connections>
@@ -183,6 +212,13 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Arf-cE-YM4">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="BrickWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="BrickBlack"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" name="BrickBlack"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="qan-JL-sJw" kind="relationship" relationship="rootViewController" id="zjY-Ob-nHQ"/>
@@ -200,27 +236,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Название заметки" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kCf-Hx-rXc">
-                                <rect key="frame" x="20" y="104" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.28967682989999999" green="0.79404244660000001" blue="0.86200678470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Название заметки" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kCf-Hx-rXc">
+                                <rect key="frame" x="10" y="165" width="394" height="36"/>
+                                <color key="backgroundColor" name="BrickWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bV9-cq-Zpl">
-                                <rect key="frame" x="20" y="146" width="374" height="716"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.28967682989999999" green="0.79404244660000001" blue="0.86200678470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bV9-cq-Zpl">
+                                <rect key="frame" x="10" y="226" width="394" height="631"/>
+                                <color key="backgroundColor" name="BrickWhite"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uTc-uk-TZm"/>
-                        <color key="backgroundColor" red="0.28967682989999999" green="0.79404244660000001" blue="0.86200678470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="BrickWhite"/>
+                        <constraints>
+                            <constraint firstItem="uTc-uk-TZm" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bV9-cq-Zpl" secondAttribute="trailing" constant="10" id="8Le-Dd-3mY"/>
+                            <constraint firstItem="bV9-cq-Zpl" firstAttribute="leading" secondItem="uTc-uk-TZm" secondAttribute="leading" constant="10" id="IBy-to-zXE"/>
+                            <constraint firstItem="uTc-uk-TZm" firstAttribute="bottom" secondItem="bV9-cq-Zpl" secondAttribute="bottom" constant="5" id="LHj-S4-dQo"/>
+                            <constraint firstItem="bV9-cq-Zpl" firstAttribute="top" secondItem="uTc-uk-TZm" secondAttribute="top" constant="86" id="Uwz-Wq-Yqj"/>
+                            <constraint firstItem="kCf-Hx-rXc" firstAttribute="top" secondItem="uTc-uk-TZm" secondAttribute="top" constant="25" id="Vgr-H2-ecD"/>
+                            <constraint firstItem="bV9-cq-Zpl" firstAttribute="centerX" secondItem="uTc-uk-TZm" secondAttribute="centerX" id="X26-OZ-cAW"/>
+                            <constraint firstItem="kCf-Hx-rXc" firstAttribute="centerX" secondItem="uTc-uk-TZm" secondAttribute="centerX" id="a3z-kB-GBg"/>
+                            <constraint firstItem="uTc-uk-TZm" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kCf-Hx-rXc" secondAttribute="trailing" constant="5" id="fvl-hp-yeu"/>
+                            <constraint firstItem="kCf-Hx-rXc" firstAttribute="leading" secondItem="uTc-uk-TZm" secondAttribute="leading" constant="10" id="jNS-RH-UTT"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sKW-Pi-saX">
                         <barButtonItem key="leftBarButtonItem" systemItem="save" id="tfd-uv-B0O">
+                            <color key="tintColor" name="BrickBlack"/>
                             <connections>
                                 <segue destination="tTn-PD-t4e" kind="unwind" identifier="updateNoteSegue" unwindAction="unwindUpdateNoteWithUnwindSegue:" id="uiD-cN-Yx9"/>
                             </connections>
@@ -238,11 +284,14 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="BrickBlack">
+            <color red="0.10588235294117647" green="0.090196078431372548" blue="0.090196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BrickWhite">
+            <color red="0.93300002813339233" green="0.92199999094009399" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
