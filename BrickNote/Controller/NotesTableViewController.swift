@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import SwipeCellKit
 
 class NotesTableViewController: UITableViewController {
     
@@ -36,12 +37,13 @@ class NotesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! SwipeTableViewCell
         if let note = notes?[indexPath.row]{
             cell.textLabel?.text = note.title
         } else{
             cell.textLabel?.text = "No note"
         }
+        cell.delegate = self
         return cell
     }
     
@@ -55,6 +57,7 @@ class NotesTableViewController: UITableViewController {
                     let newNote = Note()
                     newNote.title = titleNote ?? "Заметка"
                     newNote.text = textNote ?? ""
+                    newNote.dateCreate = Date()
                     currentCategory.notes.append(newNote)
                 }
             } catch {
@@ -86,6 +89,7 @@ class NotesTableViewController: UITableViewController {
                     try realm.write{
                         note.title = titleNote ?? "Заметка"
                         note.text = textNote ?? ""
+                        note.dateCreate = Date()
                     }
                 } catch {
                     print("Note ne zapisalsya: \(error)")
@@ -101,42 +105,41 @@ class NotesTableViewController: UITableViewController {
     //MARK: - Загрузка Notes из Realm
     
     func load(){
-        notes = selectedCategory?.notes.sorted(byKeyPath: "title", ascending: true)
+        notes = selectedCategory?.notes.sorted(byKeyPath: "dateCreate", ascending: false)
         tableView.reloadData()
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 }
+
+    //MARK: - Swipe delegate method
+
+extension NotesTableViewController: SwipeTableViewCellDelegate{
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+
+        let deleteAction = SwipeAction(style: .destructive, title: "Удалить") { action, indexPath in
+            if let note = self.notes?[indexPath.row]{
+                do {
+                    try self.realm.write{
+                        self.realm.delete(note)
+                    }
+                } catch  {
+                    print(error)
+                }
+            }
+        }
+
+        // customize the action appearance
+        deleteAction.image = UIImage(named: "delete-icon")
+
+        return [deleteAction]
+}
+
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        options.expansionStyle = .destructive
+        options.transitionStyle = .border
+        return options
+    }
+}
+

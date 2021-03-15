@@ -7,8 +7,10 @@
 
 import UIKit
 import RealmSwift
+import SwipeCellKit
+import ChameleonFramework
 
-class CategoriesTableViewController: UITableViewController {
+class CategoriesTableViewController: UITableViewController{
     
     let realm = try! Realm()
     var categories: Results<Category>?
@@ -16,7 +18,7 @@ class CategoriesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.rowHeight = 80.0
         load()
         
     }
@@ -29,14 +31,15 @@ class CategoriesTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! SwipeTableViewCell
         if let category = categories?[indexPath.row]{
             cell.textLabel?.text = category.title
+            cell.detailTextLabel?.text = String(category.notes.count)
         } else {
             cell.textLabel?.text = "No category"
         }
-
+        cell.backgroundColor = UIColor.flatGray()
+        cell.delegate = self
         return cell
     }
     
@@ -46,6 +49,8 @@ class CategoriesTableViewController: UITableViewController {
         print("Unwind srabotal")
         let newCategory = Category()
         newCategory.title = titleCategory!
+        newCategory.dateCreate = Date()
+//        print(newCategory.dateCreate)
         do {
             try realm.write{
                 realm.add(newCategory)
@@ -72,44 +77,42 @@ class CategoriesTableViewController: UITableViewController {
     //MARK: - Чтение из Realm
     
     func load() {
-        categories = realm.objects(Category.self)
-        
+        categories = realm.objects(Category.self).sorted(byKeyPath: "dateCreate", ascending: false)
         tableView.reloadData()
     }
+}
+
+    //MARK: - Swipe delegate method
+
+extension CategoriesTableViewController: SwipeTableViewCellDelegate{
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+
+            let deleteAction = SwipeAction(style: .destructive, title: "Удалить") { action, indexPath in
+                if let category = self.categories?[indexPath.row]{
+                    do {
+                        try self.realm.write{
+                            self.realm.delete(category.notes)
+                            self.realm.delete(category)
+                        }
+                    } catch  {
+                        print(error)
+                    }
+                }
+//                tableView.reloadData()
+            }
+
+            // customize the action appearance
+            deleteAction.image = UIImage(named: "delete-icon")
+
+            return [deleteAction]
+
+    }
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        options.expansionStyle = .destructive
+        options.transitionStyle = .border
+        return options
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
 }
