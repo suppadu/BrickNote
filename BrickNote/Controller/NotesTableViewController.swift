@@ -47,7 +47,8 @@ class NotesTableViewController: UITableViewController {
         return cell
     }
     
-    //MARK: - Переход от AddNoteVC и сохранение данных в Realm
+    //MARK: - Переход от AddNoteVC
+    //Сохранение заметки в Realm
     
     @IBAction func unwindAddNote(unwindSegue: UIStoryboardSegue){
         print("Note is back")
@@ -68,6 +69,9 @@ class NotesTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    //MARK: - Переход к UpdateVC
+    
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "goToUpdateNote", sender: self)
     }
@@ -80,6 +84,9 @@ class NotesTableViewController: UITableViewController {
             }
         }
     }
+    
+    //MARK: - Переход от UpdateVC
+    //Перезапись заметки в Realm
     
     @IBAction func unwindUpdateNote(unwindSegue: UIStoryboardSegue){
         print("Update Note")

@@ -59,23 +59,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="115" translatesAutoresizingMaskIntoConstraints="NO" id="6zH-Qf-CuR">
-                                <rect key="frame" x="3" y="50" width="408" height="738"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="iRR-TP-UlB">
+                                <rect key="frame" x="10" y="42" width="414" height="95.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="добавить категорию" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ko3-v8-xii">
-                                        <rect key="frame" x="86" y="0.0" width="236.5" height="169.5"/>
-                                        <color key="tintColor" name="BrickBlack"/>
-                                        <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="40"/>
-                                        <color key="textColor" name="BrickBlack"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="название категории" textAlignment="center" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="xLm-72-ps0">
-                                        <rect key="frame" x="15" y="284.5" width="378" height="169"/>
+                                        <rect key="frame" x="139" y="0.0" width="136" height="18.5"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhZ-ah-Z2P">
-                                        <rect key="frame" x="140" y="568.5" width="128" height="169.5"/>
+                                        <rect key="frame" x="143" y="47.5" width="128" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="добавить">
                                             <color key="titleColor" name="BrickBlack"/>
@@ -85,20 +78,14 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="xLm-72-ps0" firstAttribute="leading" secondItem="6zH-Qf-CuR" secondAttribute="leading" constant="15" id="BZx-6b-XI6"/>
-                                    <constraint firstAttribute="trailing" secondItem="xLm-72-ps0" secondAttribute="trailing" constant="15" id="fGx-9w-8pM"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tjR-NZ-Onr"/>
                         <color key="backgroundColor" name="BrickWhite"/>
                         <constraints>
-                            <constraint firstItem="6zH-Qf-CuR" firstAttribute="leading" secondItem="tjR-NZ-Onr" secondAttribute="leading" constant="3" id="EJh-Sg-b2E"/>
-                            <constraint firstItem="6zH-Qf-CuR" firstAttribute="centerX" secondItem="tjR-NZ-Onr" secondAttribute="centerX" id="ObA-9K-bN3"/>
-                            <constraint firstItem="6zH-Qf-CuR" firstAttribute="top" secondItem="tjR-NZ-Onr" secondAttribute="top" constant="50" id="TwN-s7-PGJ"/>
-                            <constraint firstItem="tjR-NZ-Onr" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6zH-Qf-CuR" secondAttribute="trailing" constant="3" id="obl-DH-v58"/>
-                            <constraint firstItem="tjR-NZ-Onr" firstAttribute="bottom" secondItem="6zH-Qf-CuR" secondAttribute="bottom" constant="20" id="tBK-Yo-Gdk"/>
+                            <constraint firstItem="iRR-TP-UlB" firstAttribute="leading" secondItem="tjR-NZ-Onr" secondAttribute="leading" constant="10" id="2P7-fO-8xc"/>
+                            <constraint firstItem="iRR-TP-UlB" firstAttribute="trailing" secondItem="tjR-NZ-Onr" secondAttribute="trailing" constant="10" id="m5x-Q4-zvH"/>
+                            <constraint firstItem="iRR-TP-UlB" firstAttribute="top" secondItem="tjR-NZ-Onr" secondAttribute="top" constant="42" id="ykh-vO-sPg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xk3-vD-yjF"/>
@@ -283,9 +270,10 @@
             <point key="canvasLocation" x="2154" y="822"/>
         </scene>
     </scenes>
+    <color key="tintColor" name="BrickBlack"/>
     <resources>
         <namedColor name="BrickBlack">
-            <color red="0.10588235294117647" green="0.090196078431372548" blue="0.090196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.10599999874830246" green="0.090000003576278687" blue="0.090000003576278687" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BrickWhite">
             <color red="0.93300002813339233" green="0.92199999094009399" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

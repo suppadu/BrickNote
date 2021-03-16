@@ -6,14 +6,36 @@
 //
 
 import UIKit
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
+    
+    let realm = try! Realm()
+    
+    let category = Category()
+    let note = Note()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        //проверка приложения на первый запуск и создание заметки в категории в случае первого запуска
+        let defaults = UserDefaults.standard
+        if let _ = defaults.string(forKey: "firstLaunchApp") {
+            print("App already launched")
+        } else {
+            defaults.set(true, forKey: "firstLaunchApp")
+            print("App launched first time")
+            category.title = "Нажми"
+            note.title = "Еще раз"
+            note.text = "Можешь свайпом по ячейке удалить заметку или всю категорию. Приятного пользования"
+            category.notes.append(note)
+            do {
+                try realm.write{
+                    realm.add(category)
+                }
+            } catch  {
+                print(error)
+            }
+        }
         return true
     }
 

@@ -19,7 +19,6 @@ class CategoriesTableViewController: UITableViewController{
         super.viewDidLoad()
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "categoryCell")
         load()
-        
     }
 
     // MARK: - Table view data source
